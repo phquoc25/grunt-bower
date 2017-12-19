@@ -1,0 +1,15 @@
+{
+  "name": "grunt-bower-learning",
+  "version": "0.1.0",
+  "description": "Project for learning how to use grunt and bower to build a js project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Quoc",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.8.2",
+    "grunt": "^1.0.1"
+  }
+}
