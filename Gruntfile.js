@@ -23,6 +23,21 @@ module.exports = function(grunt) {
                     'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
                 }
             }
+        },
+        qunit: {
+            files: ['test/**/*.html']
+        },
+        jshint: {
+            // define the files to lint
+            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+            options: {
+                // more options here if you want to override JSHint default
+                globals: {
+                    jQuery: true,
+                    console: true,
+                    module: true
+                }
+            }
         }
     });
 
