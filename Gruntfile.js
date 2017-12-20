@@ -38,6 +38,10 @@ module.exports = function(grunt) {
                     module: true
                 }
             }
+        },
+        watch: {
+          files: ['<%= jshint.files %>'],
+          tasks: ['jshint', 'qunit']
         }
     });
 
