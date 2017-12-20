@@ -10,7 +10,18 @@ module.exports = function(grunt) {
                 // the files to concatenate
                 src: ['src/**/*.js'],
                 // the location of the resulting JS file
-                dest: 'dist/<%= pkg.name%>.js'
+                dest: 'dist/<%= pkg.name %>.js'
+            }
+        },
+        uglify: {
+            options: {
+                // the banner is inserted at the top of the output
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            },
+            dist: {
+                files: {
+                    'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+                }
             }
         }
     });
