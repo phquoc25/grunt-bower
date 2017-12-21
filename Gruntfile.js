@@ -24,8 +24,10 @@ module.exports = function(grunt) {
                 }
             }
         },
-        qunit: {
-            files: ['test/**/*.html']
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         },
         jshint: {
             // define the files to lint
@@ -41,7 +43,7 @@ module.exports = function(grunt) {
         },
         watch: {
           files: ['<%= jshint.files %>'],
-          tasks: ['jshint', 'qunit']
+          tasks: ['jshint', 'karma']
         }
     });
 
@@ -50,8 +52,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('test', ['jshint', 'qunit']);
+    grunt.registerTask('test', ['jshint', 'karma']);
 
-    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'karma', 'concat', 'uglify']);
 };
