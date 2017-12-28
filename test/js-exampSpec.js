@@ -4,19 +4,28 @@ describe('add', function () {
         expect(result).to.be.equal(2);
     });
 
-    it('should throw "Invalid parameter"', function () {
-        var badfn = function () {
-            throw new Error('TOTO');
-        };
-        expect(badfn).to.throw();
-        expect(badfn).to.throw(Error);
-        expect(badfn).to.throw(Error, 'TOTO');
-        expect(add('a', 1)).to.throw();
+    it('should throw "Invalid parameter" when at least one input is not a number', function () {
+        try {
+            add('a', 1);
+        } catch (err) {
+            expect(err).to.be.an('error');
+            expect(err.message).to.equal('Invalid parameter');
+        }
     });
-    it('should throw "Invalid parameter" 1', function () {
-        expect(add(null, 1)).to.throw('Invalid parameter');
+    it('should throw "Invalid parameter" when at least one input is null', function () {
+        try {
+            add(1, null);
+        } catch (err) {
+            expect(err).to.be.an('error');
+            expect(err.message).to.equal('Invalid parameter');
+        }
     });
-    it('should throw "Invalid parameter" 2', function () {
-        expect(add(1)).to.throw(TypeError, 'Invalid parameter');
+    it('should throw "Invalid parameter" when at least one input is undefine', function () {
+        try {
+            add(1);
+        } catch (err) {
+            expect(err).to.be.an('error');
+            expect(err.message).to.equal('Invalid parameter');
+        }
     });
 });

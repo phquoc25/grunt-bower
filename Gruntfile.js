@@ -45,7 +45,7 @@ module.exports = function(grunt) {
           files: ['<%= jshint.files %>'],
           tasks: ['jshint', 'karma']
         },
-        clean: ['dist']
+        clean: ['dist', 'coverage']
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
