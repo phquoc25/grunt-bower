@@ -13,7 +13,7 @@ Print the sum of the array's elements as a single integer.
 Sample Input
 
 6
-1 2 3 4 10 11
+1 2 3 4 5 10 11
 Sample Output
 
 31
@@ -45,6 +45,18 @@ class SimpleArraySum {
 		if(this.n === 1) {
 			return this.numberArr[0];
 		}
+		let middle = Math.floor(this.n / 2);
+		let sum = 0;
+		let visited = [];
+		for(let i = 0; i < middle; i++) {
+			sum = sum + this.numberArr[i] + this.numberArr[this.n - i - 1];
+			visited[i] = true;
+			visited[this.n - i - 1] = true;
+		}
+		if(!visited[middle]) {
+			sum += this.numberArr[middle];
+		}
+		return sum;
 	}
 }
 
