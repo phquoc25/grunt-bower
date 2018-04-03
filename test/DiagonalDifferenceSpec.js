@@ -6,6 +6,6 @@ describe('DiagonalDifference', () => {
 			[10, 8, -12]
 		];
 		const result = diagonalDifference(numArr);
-		expect(result).to.deep.equal(15);
+		expect(result).to.equal(15);
 	});
 });
